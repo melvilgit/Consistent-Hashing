@@ -73,8 +73,4 @@ We can do a modulo of hash by the no of servers ie 3 , to map each each key to a
   </tr>
 </table>
 
->This looks perfcto !
-But What if a server say node-1 went down ?
-Applying the same formula ie f(id)%(no of servers) , say for Jackson, we do ```1211%2 = 1``` when the actual key is hashed 
-to node-2 from the above table .
-This is a major flow in traditional hashing technique.
+
