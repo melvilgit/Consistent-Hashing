@@ -80,12 +80,15 @@ Applying the same formula ie f(id)%(no of servers) , For user Jackson,  ```1211%
 
 >What is Consistent Hashing ?
 
-In Consistent hashing , we visualize our list of nodes in a circular ring
+In Consistent hashing , we visualize  list of all nodes in a circular ring .(Basically a sorted array)
 
 ![alt text](https://github.com/melvilgit/Consistent-Hashing/blob/master/ch1.png)
 
 ```
 start func
+For each node:
+ Find f(node) where f is the hash function
+ Append each f(node) to a sorted array
 For any key
   Compute the hash f(key)
   Find the first f(node)>f(key)
@@ -94,3 +97,8 @@ end func
 ```
 
 for eg, we have to hash key smith, we compute the hash value 1123 , find the immediate node having hash value > 1123 ie node 3 with hash value 1500 
+
+Now , What if we loose a server , say we loose node 2 ,All the keys will get mapped to next server node 3 :)
+
+![alt text](https://github.com/melvilgit/Consistent-Hashing/blob/master/ch2.png)
+
