@@ -73,4 +73,24 @@ We can do a modulo of hash by the no of servers ie 3 , to map each each key to a
   </tr>
 </table>
 
+This looks perfcto </br>
+But What if a server say node-1 went down ? </br>
+Applying the same formula ie f(id)%(no of servers) , For user Jackson,  ```1211%2 = 1``` ie we got ~~node-1~~ when the actual key is hashed to **node-2** from the above table .
+*This is a major flow in traditional hashing technique.*
 
+>What is Consistent Hashing ?
+
+In Consistent hashing , we visualize our list of nodes in a circular ring
+
+![alt text](https://github.com/melvilgit/Consistent-Hashing/blob/master/ch1.png)
+
+```
+start func
+For any key
+  Compute the hash f(key)
+  Find the first f(node)>f(key)
+  map it
+end func
+```
+
+for eg, we have to hash key smith, we compute the hash value 1123 , find the immediate node having hash value > 1123 ie node 3 with hash value 1500 
