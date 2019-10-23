@@ -105,5 +105,6 @@ for example, if we have to hash key smith, we compute the hash value 1123 , find
 
 Now , What if we loose a server , say we loose node-2 , All the keys can be mapped to next server node-3 :)
 Yea , we only have to remap the keys of node-2
+</br>
 ![alt text](https://github.com/melvilgit/Consistent-Hashing/blob/master/ch2.png)
 
