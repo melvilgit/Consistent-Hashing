@@ -1,4 +1,6 @@
  https://en.wikipedia.org/wiki/Consistent_hashing . 
+ 
+>To Run python3.7 -m test 
 
 Simplest Explanation
 ====================
