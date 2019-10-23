@@ -34,7 +34,7 @@ Let's say we have to store the following key value pair in a distributed memory 
 </table>
 
 Let say we have a hash function f(id) ,that takes above ids and  creates hashes  from it . </br>
-Assume we have 3 servers - (s1 , s2 and s3)
+Assume we have 3 servers - (s1 , s2 and s3)</br>
 We can do a modulo of hash by the no of servers ie 3 , to map each each key to a server and we are left with following.
 <table style="width:100%">
   <tr>
@@ -74,10 +74,13 @@ We can do a modulo of hash by the no of servers ie 3 , to map each each key to a
     <td>node-0</td>
   </tr>
 </table>
+We could retreive the value for a key by simple lookup using f().
+Say for key Jackson , f("Jackson")%(no of servers) => 1211*3 = 2 (node-2)
 
-This looks perfcto </br>
-But What if a server say node-1 went down ? </br>
-Applying the same formula ie f(id)%(no of servers) , For user Jackson,  ```1211%2 = 1``` ie we got ~~node-1~~ when the actual key is hashed to **node-2** from the above table .
+*This looks perfecto , yea close but not cigar !* </br>
+But What if a server say node-1 went down ?
+Applying the same formula ie f(id)%(no of servers) , For user Jackson,  ```1211%2 = 1``` ie we got ~~node-1~~ when the actual key is hashed to **node-2** from the above table .</br>
+We could do remapping here , What if we have a billion keys ,in that case we have to remap a large no of keys which is tedious :(
 *This is a major flow in traditional hashing technique.*
 
 >What is Consistent Hashing ?
@@ -98,9 +101,9 @@ For any key
 end func
 ```
 
-for eg, we have to hash key smith, we compute the hash value 1123 , find the immediate node having hash value > 1123 ie node 3 with hash value 1500 
+for example, if we have to hash key smith, we compute the hash value 1123 , find the immediate node having hash value > 1123 ie node 3 with hash value 1500 
 
-Now , What if we loose a server , say we loose node 2 ,All the keys will get mapped to next server node 3 :)
-
+Now , What if we loose a server , say we loose node-2 , All the keys can be mapped to next server node-3 :)
+Yea , we only have to remap the keys of node-2
 ![alt text](https://github.com/melvilgit/Consistent-Hashing/blob/master/ch2.png)
 
