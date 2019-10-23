@@ -77,8 +77,8 @@ We can do a modulo of hash by the no of servers ie 3 , to map each each key to a
 </table>
 We could retreive the value for a key by simple lookup using f().
 Say for key Jackson , f("Jackson")%(no of servers) => 1211*3 = 2 (node-2)
-
-*This looks perfecto , yea close but not cigar !* </br>
+</br>
+*This looks perfecto , yea close but not cigar !* </br></br>
 But What if a server say node-1 went down ?
 Applying the same formula ie f(id)%(no of servers) , For user Jackson,  ```1211%2 = 1``` ie we got ~~node-1~~ when the actual key is hashed to **node-2** from the above table .</br></br>
 We could do remapping here , What if we have a billion keys ,in that case we have to remap a large no of keys which is tedious :(
