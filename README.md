@@ -5,6 +5,7 @@
 Simplest Explanation
 ====================
 >What is normal hashing ? </br>
+
 Let's say we have to store the following key value pair in a distributed memory store like redis.
 <table style="width:100%">
   <tr>
