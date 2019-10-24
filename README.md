@@ -41,7 +41,7 @@ We can do a modulo of hash by the no of servers ie 3 , to map each each key to a
   <tr>
     <th>Id</th>
     <th>Name</th>
-    <th>Hash</th>
+    <th>Hash f(Id)</th>
     <th>Server(Hash % No of servers)</th>
   </tr>
   <tr>
